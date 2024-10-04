@@ -10,8 +10,8 @@ sudo useradd -s /bin/bash -m p1c2_2024_A3
 sudo useradd -s /bin/bash -m p1c2_2024_P1
 
 echo "==== Creo los grupos secundarios ===="
-sudo groupadd p1c2_2024_gAlumno
-sudo groupadd p1c2_2024_gProfesores
+sudo groupadd -f p1c2_2024_gAlumno
+sudo groupadd -f p1c2_2024_gProfesores
 
 echo "==== Agrego a los usuarios a los grupos secundarios ===="
 for i in 1 2 3; do
@@ -25,7 +25,7 @@ for i in 1 2 3; do
 done
 echo "p1c2_2024_P1:${CONTRA_USUARIO}" | sudo chpasswd
 
-echo " ==== Ajusto los Permisos ===="
+echo "==== Ajusto los Permisos ===="
 sudo chmod -R 750 /Examenes-UTN/Alumno_1
 sudo chmod -R 760 /Examenes-UTN/Alumno_2
 sudo chmod -R 700 /Examenes-UTN/Alumno_3
@@ -35,14 +35,13 @@ echo "==== Ajusto Dueños ===="
 sudo chown -R p1c2_2024_A1:p1c2_2024_gAlumno /Examenes-UTN/Alumno_1
 sudo chown -R p1c2_2024_A2:p1c2_2024_gAlumno /Examenes-UTN/Alumno_2
 sudo chown -R p1c2_2024_A3:p1c2_2024_gAlumno /Examenes-UTN/Alumno_3
-sudo chown -R p1c2_2024_P1:p1c2_2024_gAlumno /Examenes-UTN/profesores
+sudo chown -R p1c2_2024_P1:p1c2_2024_gProfesores /Examenes-UTN/profesores
 
-
-echo "Creo archivo con p1c1_2024_u1 "
-su -c "whoami > /Examenes-UTN/Alumno_1/validar1.txt" p1c2_2024_A1
-su -c "whoami > /Examenes-UTN/Alumno_2/validar2.txt" p1c2_2024_A2
-su -c "whoami > /Examenes-UTN/Alumno_3/validar3.txt" p1c2_2024_A3
-su -c "whoami > /Examenes-UTN/profesores/validar4.txt" p1c2_2024_P1
+echo "Creo archivo con p1c1_2024_u1"
+sudo -u p1c2_2024_A1 bash -c "echo \$(whoami) > /Examenes-UTN/Alumno_1/validar1.txt"
+sudo -u p1c2_2024_A2 bash -c "echo \$(whoami) > /Examenes-UTN/Alumno_2/validar2.txt"
+sudo -u p1c2_2024_A3 bash -c "echo \$(whoami) > /Examenes-UTN/Alumno_3/validar3.txt"
+sudo -u p1c2_2024_P1 bash -c "echo \$(whoami) > /Examenes-UTN/profesores/validar4.txt"
 
 echo "Muestro permisos del archivo: "
 sudo ls -l /Examenes-UTN/Alumno_1/validar1.txt
@@ -51,7 +50,8 @@ sudo ls -l /Examenes-UTN/Alumno_3/validar3.txt
 sudo ls -l /Examenes-UTN/profesores/validar4.txt
 
 echo "Muestro archivo: "
-sudo cat /Estudiantes-UTN/Alumno_1/validar1.txt
-sudo cat /Estudiantes-UTN/Alumno_2/validar2.txt
-sudo cat /Estudiantes-UTN/Alumno_3/validar3.txt
-sudo cat /Estudiantes-UTN/profesores/validar4.txt
+sudo cat /Examenes-UTN/Alumno_1/validar1.txt
+sudo cat /Examenes-UTN/Alumno_2/validar2.txt
+sudo cat /Examenes-UTN/Alumno_3/validar3.txt
+sudo cat /Examenes-UTN/profesores/validar4.txt
+
