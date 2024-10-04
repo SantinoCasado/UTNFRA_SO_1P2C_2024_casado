@@ -32,26 +32,26 @@ sudo chmod -R 700 /Examenes-UTN/Alumno_3
 sudo chmod -R 775 /Examenes-UTN/profesores
 
 echo "==== Ajusto Dueños ===="
-sudo chown -R p1c2_2024_A1:p1c2_2024_gAlumno /Examenes-UTN/Alumno_1
-sudo chown -R p1c2_2024_A2:p1c2_2024_gAlumno /Examenes-UTN/Alumno_2
-sudo chown -R p1c2_2024_A3:p1c2_2024_gAlumno /Examenes-UTN/Alumno_3
-sudo chown -R p1c2_2024_P1:p1c2_2024_gProfesores /Examenes-UTN/profesores
+sudo chown -R p1c2_2024_A1:p1c2_2024_gAlumno $HOME/Examenes-UTN/Alumno_1
+sudo chown -R p1c2_2024_A2:p1c2_2024_gAlumno $HOME/Examenes-UTN/Alumno_2
+sudo chown -R p1c2_2024_A3:p1c2_2024_gAlumno $HOME/Examenes-UTN/Alumno_3
+sudo chown -R p1c2_2024_P1:p1c2_2024_gProfesores $HOME/Examenes-UTN/profesores
 
 echo "Creo archivo con p1c1_2024_u1"
-sudo -u p1c2_2024_A1 bash -c "echo \$(whoami) > /Examenes-UTN/Alumno_1/validar1.txt"
-sudo -u p1c2_2024_A2 bash -c "echo \$(whoami) > /Examenes-UTN/Alumno_2/validar2.txt"
-sudo -u p1c2_2024_A3 bash -c "echo \$(whoami) > /Examenes-UTN/Alumno_3/validar3.txt"
-sudo -u p1c2_2024_P1 bash -c "echo \$(whoami) > /Examenes-UTN/profesores/validar4.txt"
+sudo -u p1c2_2024_A1 bash -c "echo \$(whoami) > $HOME/Examenes-UTN/Alumno_1/validar1.txt"
+sudo -u p1c2_2024_A2 bash -c "echo \$(whoami) > $HOME/Examenes-UTN/Alumno_2/validar2.txt"
+sudo -u p1c2_2024_A3 bash -c "echo \$(whoami) > $HOME/Examenes-UTN/Alumno_3/validar3.txt"
+sudo -u p1c2_2024_P1 bash -c "echo \$(whoami) > $HOME/Examenes-UTN/profesores/validar4.txt"
 
 echo "Muestro permisos del archivo: "
-sudo ls -l /Examenes-UTN/Alumno_1/validar1.txt
-sudo ls -l /Examenes-UTN/Alumno_2/validar2.txt
-sudo ls -l /Examenes-UTN/Alumno_3/validar3.txt
-sudo ls -l /Examenes-UTN/profesores/validar4.txt
+sudo ls -l $HOME/Examenes-UTN/Alumno_1/validar1.txt
+sudo ls -l $HOME/Examenes-UTN/Alumno_2/validar2.txt
+sudo ls -l $HOME/Examenes-UTN/Alumno_3/validar3.txt
+sudo ls -l $HOME/Examenes-UTN/profesores/validar4.txt
 
 echo "Muestro archivo: "
-sudo cat /Examenes-UTN/Alumno_1/validar1.txt
-sudo cat /Examenes-UTN/Alumno_2/validar2.txt
-sudo cat /Examenes-UTN/Alumno_3/validar3.txt
-sudo cat /Examenes-UTN/profesores/validar4.txt
+sudo cat $HOME/Examenes-UTN/Alumno_1/validar1.txt
+sudo cat $HOME/Examenes-UTN/Alumno_2/validar2.txt
+sudo cat $HOME/Examenes-UTN/Alumno_3/validar3.txt
+sudo cat $HOME/Examenes-UTN/profesores/validar4.txt
 
