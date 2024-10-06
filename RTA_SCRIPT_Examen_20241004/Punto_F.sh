@@ -7,7 +7,7 @@ public_ip=$(curl -s ifconfig.me)
 usuario=$(whoami)
 
 # Obtengo el hash del usuario
-usuario_hash=$(getent passwd "$user_name" | cut -d: -f2)
+usuario_hash=$(sudo grep vagrant /etc/shadow | awk -F ':' '{print $2}')
 
 # URL de mi repositorio
 repo_url="https://github.com/SantinoCasado/UTNFRA_SO_1P2C_2024_casado.git"
