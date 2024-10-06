@@ -10,3 +10,6 @@ echo MemTotal: $total_ram >> ~/repogit/UTNFRA_SO_1P2C_2024_casado/RTA_ARCHIVOS_E
 
 echo Chasis Information >> ~/repogit/UTNFRA_SO_1P2C_2024_casado/RTA_ARCHIVOS_Examen_20241004/Filtro_Basico.txt
 echo 		Manufacturer: $chassis >> ~/repogit/UTNFRA_SO_1P2C_2024_casado/RTA_ARCHIVOS_Examen_20241004/Filtro_Basico.txt
+
+echo "==== Muestro el contenido de Filtro_Basico ===="
+cat ~/repogit/UTNFRA_SO_1P2C_2024_casado/RTA_ARCHIVOS_Examen_20241004/Filtro_Basico.txt
