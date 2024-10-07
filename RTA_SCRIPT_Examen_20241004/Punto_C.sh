@@ -26,10 +26,10 @@ done
 echo "p1c2_2024_P1:${CONTRA_USUARIO}" | sudo chpasswd
 
 echo "==== Ajusto los Permisos ===="
-sudo chmod -R 750 /Examenes-UTN/Alumno_1
-sudo chmod -R 760 /Examenes-UTN/Alumno_2
-sudo chmod -R 700 /Examenes-UTN/Alumno_3
-sudo chmod -R 775 /Examenes-UTN/profesores
+sudo chmod -R 750 $HOME/Examenes-UTN/Alumno_1
+sudo chmod -R 760 $HOME/Examenes-UTN/Alumno_2
+sudo chmod -R 700 $HOME/Examenes-UTN/Alumno_3
+sudo chmod -R 775 $HOME/Examenes-UTN/profesores
 
 echo "==== Ajusto Dueños ===="
 sudo chown -R p1c2_2024_A1:p1c2_2024_gAlumno $HOME/Examenes-UTN/Alumno_1
